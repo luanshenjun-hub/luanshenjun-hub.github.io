@@ -178,10 +178,6 @@
     .contact .section-kicker { color: #babbb7; }
     .contact-grid { display: grid; grid-template-columns: 1fr .65fr; gap: 72px; align-items: end; }
     .contact h2 { max-width: 650px; margin: 0; font-size: clamp(2.8rem, 5vw, 5rem); line-height: .98; letter-spacing: -.055em; }
-    .contact-copy { margin: 24px 0 0; color: #c6c4bd; }
-    .contact-links { display: grid; gap: 12px; }
-    .contact-links a { color: #f0ebe1; text-decoration: none; border-bottom: 1px solid rgba(247,244,238,.25); padding-bottom: 9px; }
-    .contact-links a:hover, .contact-links a:focus-visible { color: #e6a08f; border-color: #e6a08f; }
     footer { padding: 24px 0; color: #8d969e; background: #101920; font-size: .78rem; }
     footer .footer-inner { display: flex; justify-content: space-between; gap: 16px; }
 
@@ -202,7 +198,6 @@
       .production-list { margin-top: 42px; }
       .publication { grid-template-columns: 34px 1fr; }
       .publication a { grid-column: 2; }
-      .contact-links { margin-top: 42px; }
       footer .footer-inner { display: block; }
       footer .footer-inner span { display: block; margin-top: 6px; }
     }
@@ -216,9 +211,8 @@
       <nav class="nav-links" aria-label="Primary navigation">
         <a href="#about">About</a>
         <a href="#research">Research</a>
-        <a href="#aimath-production">AIMATH</a>
+        <a href="#notes-aimath">Notes &amp; AIMATH</a>
         <a href="#publications">Papers</a>
-        <a href="#notes">Notes</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -292,18 +286,20 @@
       </div>
     </section>
 
-    <section id="aimath-production" class="aimath">
+    <section id="notes-aimath" class="aimath">
       <div class="shell aimath-layout">
         <div>
-          <p class="eyebrow">AIMATH production</p>
-          <h2>Where ideas become objects.</h2>
-          <p class="aimath-intro">In AIMATH production, I want to make the work behind a result visible: formal proofs, computational experiments, reusable tools, and research artifacts that others can inspect and extend.</p>
+          <p class="eyebrow">Informal notes · AIMATH production</p>
+          <h2>Work it through. Make it shareable.</h2>
+          <p class="aimath-intro">This is the informal side of my mathematical work: notes for understanding and digesting ideas, alongside the formal proofs, computations, and reproducible artifacts that help make them inspectable.</p>
           <div class="production-links"><a href="https://github.com/luanshenjun-hub/luanshenjun-hub.github.io/commits/main/" target="_blank" rel="noreferrer">Production log ↗</a><a href="https://github.com/luanshenjun-hub/luanshenjun-hub.github.io" target="_blank" rel="noreferrer">Open repository ↗</a></div>
         </div>
         <div class="production-list">
-          <article class="production-item"><span class="production-index">01</span><div><h3>Formalization</h3><p>Lean developments and machine-checked proofs that make the logical spine of a result explicit.</p></div></article>
-          <article class="production-item"><span class="production-index">02</span><div><h3>Computation</h3><p>Symbolic calculations, numerical experiments, and visual explorations that guide the next conjecture.</p></div></article>
-          <article class="production-item"><span class="production-index">03</span><div><h3>Reproducible research</h3><p>Versioned code, datasets, and notebooks designed so a reader can move from theorem to experiment.</p></div></article>
+          <article class="production-item"><span class="production-index">01</span><div><h3>Working notes</h3><p>Informal expositions that help me understand a problem, digest a proof, and record the questions that remain.</p></div></article>
+          <article class="production-item"><span class="production-index">02</span><div><h3>Formalization</h3><p>Lean developments and machine-checked proofs that make the logical spine of a result explicit.</p></div></article>
+          <article class="production-item"><span class="production-index">03</span><div><h3>Computation</h3><p>Symbolic calculations, numerical experiments, and visual explorations that help ideas become testable.</p></div></article>
+          <article class="production-item"><span class="production-index">04</span><div><h3>Reproducible research</h3><p>Versioned code, datasets, and notebooks designed so a reader can move from theorem to experiment.</p></div></article>
+          <article class="production-item"><span class="production-index">05</span><div><h3>Informal manuscripts</h3><p>Public working documents for understanding and digesting current ideas, with supporting proofs kept alongside their main framework.</p><div class="production-links"><a href="notes/ternary-jacobian.pdf">Ternary Jacobian ↗</a><a href="notes/hsia-conjecture.pdf">Hsia conjecture ↗</a><a href="notes/sun-conjectures.pdf">Sun conjectures ↗</a><a href="notes/sun-conjectures-support-3-5.pdf">support 3.5 ↗</a><a href="notes/sun-conjectures-support-5-2.pdf">support 5.2 ↗</a></div></div></article>
         </div>
       </div>
     </section>
@@ -359,33 +355,10 @@
       </div>
     </section>
 
-    <section id="notes" class="research">
-      <div class="shell">
-        <div class="section-heading">
-          <h2>Notes &amp; teaching</h2>
-          <p class="section-kicker">Research notes, talks, and public-facing mathematical resources.</p>
-        </div>
-        <div class="notes-grid">
-          <a class="note" href="#aimath-production"><div><h3>Research artifacts</h3><p>Versioned notes, computations, and formalization projects.</p></div><span class="note-arrow">↗</span></a>
-          <a class="note" href="#research"><div><h3>Seminars &amp; talks</h3><p>Discussions on p-adic arithmetic and representation theory.</p></div><span class="note-arrow">↗</span></a>
-          <a class="note" href="https://github.com/luanshenjun-hub/luanshenjun-hub.github.io" target="_blank" rel="noreferrer"><div><h3>Working notes</h3><p>Informal expositions and research material as it develops.</p></div><span class="note-arrow">↗</span></a>
-          <a class="note" href="https://math.bit.edu.cn/szdw/jgml/sxx/fyy/index.htm" target="_blank" rel="noreferrer"><div><h3>Institutional page</h3><p>My affiliation and official contact details at BIT.</p></div><span class="note-arrow">↗</span></a>
-        </div>
-      </div>
-    </section>
-
     <section id="contact" class="contact">
-      <div class="shell contact-grid">
-        <div>
-          <p class="eyebrow">Correspondence welcome</p>
-          <h2>Let’s talk about arithmetic.</h2>
-          <p class="contact-copy">For my institutional contact details and current affiliation, please see my Beijing Institute of Technology faculty page.</p>
-        </div>
-        <div class="contact-links">
-          <a href="https://math.bit.edu.cn/szdw/jgml/sxx/fyy/index.htm" target="_blank" rel="noreferrer">My BIT faculty profile ↗</a>
-          <a href="https://github.com/luanshenjun-hub/luanshenjun-hub.github.io" target="_blank" rel="noreferrer">AIMATH repository ↗</a>
-          <a href="#aimath-production">AIMATH production ↗</a>
-        </div>
+      <div class="shell">
+        <p class="eyebrow">Correspondence</p>
+        <h2><a href="mailto:yangyu.fan@bit.edu.cn">yangyu.fan@bit.edu.cn</a></h2>
       </div>
     </section>
   </main>
@@ -399,4 +372,3 @@
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
-
