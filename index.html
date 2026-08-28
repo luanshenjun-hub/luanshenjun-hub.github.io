@@ -145,20 +145,6 @@
     .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 30px; }
     .tag { padding: 4px 9px; color: var(--accent-dark); border: 1px solid rgba(196,81,61,.28); border-radius: 999px; font-size: .75rem; }
 
-    .aimath { color: var(--paper); background: var(--accent-dark); }
-    .aimath .eyebrow { color: #f3c0b3; }
-    .aimath-layout { display: grid; grid-template-columns: .9fr 1.1fr; gap: 80px; align-items: start; }
-    .aimath h2 { max-width: 520px; margin: 0; font-size: clamp(2.8rem, 5vw, 5.3rem); line-height: .98; letter-spacing: -.055em; }
-    .aimath-intro { max-width: 480px; margin: 26px 0 0; color: #f2d8d0; font-size: 1.04rem; }
-    .production-list { border-top: 1px solid rgba(255,253,249,.3); }
-    .production-item { display: grid; grid-template-columns: 48px 1fr; gap: 18px; padding: 22px 0; border-bottom: 1px solid rgba(255,253,249,.3); }
-    .production-index { color: #f3c0b3; font: 1.2rem var(--serif); }
-    .production-item h3 { margin: 0 0 4px; font-size: 1.4rem; line-height: 1.1; }
-    .production-item p { margin: 0; color: #f2d8d0; font-size: .9rem; }
-    .production-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
-    .production-links a { color: var(--paper); text-decoration: none; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; }
-    .production-links a:hover, .production-links a:focus-visible { color: #f3c0b3; text-decoration: underline; }
-
     .publication-list { border-top: 1px solid var(--line); }
     .publication { display: grid; grid-template-columns: 52px 1fr auto; gap: 18px; align-items: start; padding: 24px 0; border-bottom: 1px solid var(--line); }
     .publication-index { color: var(--accent); font: 1.25rem var(--serif); }
@@ -167,7 +153,10 @@
     .publication a { color: var(--accent-dark); text-decoration: none; font-size: .78rem; letter-spacing: .09em; text-transform: uppercase; }
     .publication a:hover, .publication a:focus-visible { text-decoration: underline; }
 
-    .notes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .papers-heading { margin-top: 72px; margin-bottom: 32px; }
+    .papers-heading h3 { margin: 0; font: 2rem var(--serif); letter-spacing: -.025em; }
+    .papers-heading p { margin: 8px 0 0; color: var(--muted); font-size: .92rem; }
+    .notes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
     .note { display: flex; justify-content: space-between; gap: 20px; padding: 24px; background: var(--white); border: 1px solid var(--line); text-decoration: none; }
     .note:hover, .note:focus-visible { border-color: var(--accent); }
     .note h3 { margin: 0 0 4px; font-size: 1.25rem; }
@@ -177,7 +166,7 @@
     .contact { color: var(--paper); background: var(--ink); }
     .contact .section-kicker { color: #babbb7; }
     .contact-grid { display: grid; grid-template-columns: 1fr .65fr; gap: 72px; align-items: end; }
-    .contact h2 { max-width: 650px; margin: 0; font-size: clamp(2.8rem, 5vw, 5rem); line-height: .98; letter-spacing: -.055em; }
+    .contact h2 { max-width: 650px; margin: 0; font-size: clamp(1.15rem, 2vw, 1.8rem); line-height: 1.2; letter-spacing: -.02em; }
     footer { padding: 24px 0; color: #8d969e; background: #101920; font-size: .78rem; }
     footer .footer-inner { display: flex; justify-content: space-between; gap: 16px; }
 
@@ -194,8 +183,6 @@
       .section-kicker { margin-top: 18px; }
       .about-copy { margin-bottom: 42px; }
       .research-grid, .notes-grid { grid-template-columns: 1fr; }
-      .aimath-layout { display: block; }
-      .production-list { margin-top: 42px; }
       .publication { grid-template-columns: 34px 1fr; }
       .publication a { grid-column: 2; }
       footer .footer-inner { display: block; }
@@ -210,9 +197,8 @@
       <a class="brand" href="#top">Yangyu Fan<span> · </span>Mathematics</a>
       <nav class="nav-links" aria-label="Primary navigation">
         <a href="#about">About</a>
-        <a href="#research">Research</a>
+        <a href="#research">Research &amp; papers</a>
         <a href="#notes-aimath">Notes &amp; AIMATH</a>
-        <a href="#publications">Papers</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -283,32 +269,8 @@
             <div class="tag-list"><span class="tag">periods</span><span class="tag">Euler systems</span></div>
           </article>
         </div>
-      </div>
-    </section>
-
-    <section id="notes-aimath" class="aimath">
-      <div class="shell aimath-layout">
-        <div>
-          <p class="eyebrow">Informal notes · AIMATH production</p>
-          <h2>Work it through. Make it shareable.</h2>
-          <p class="aimath-intro">This is the informal side of my mathematical work: notes for understanding and digesting ideas, alongside the formal proofs, computations, and reproducible artifacts that help make them inspectable.</p>
-          <div class="production-links"><a href="https://github.com/luanshenjun-hub/luanshenjun-hub.github.io/commits/main/" target="_blank" rel="noreferrer">Production log ↗</a><a href="https://github.com/luanshenjun-hub/luanshenjun-hub.github.io" target="_blank" rel="noreferrer">Open repository ↗</a></div>
-        </div>
-        <div class="production-list">
-          <article class="production-item"><span class="production-index">01</span><div><h3>Working notes</h3><p>Informal expositions that help me understand a problem, digest a proof, and record the questions that remain.</p></div></article>
-          <article class="production-item"><span class="production-index">02</span><div><h3>Formalization</h3><p>Lean developments and machine-checked proofs that make the logical spine of a result explicit.</p></div></article>
-          <article class="production-item"><span class="production-index">03</span><div><h3>Computation</h3><p>Symbolic calculations, numerical experiments, and visual explorations that help ideas become testable.</p></div></article>
-          <article class="production-item"><span class="production-index">04</span><div><h3>Reproducible research</h3><p>Versioned code, datasets, and notebooks designed so a reader can move from theorem to experiment.</p></div></article>
-          <article class="production-item"><span class="production-index">05</span><div><h3>Informal manuscripts</h3><p>Public working documents for understanding and digesting current ideas, with supporting proofs kept alongside their main framework.</p><div class="production-links"><a href="notes/ternary-jacobian.pdf">Ternary Jacobian ↗</a><a href="notes/hsia-conjecture.pdf">Hsia conjecture ↗</a><a href="notes/sun-conjectures.pdf">Sun conjectures ↗</a><a href="notes/sun-conjectures-support-3-5.pdf">support 3.5 ↗</a><a href="notes/sun-conjectures-support-5-2.pdf">support 5.2 ↗</a></div></div></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="publications">
-      <div class="shell">
-        <div class="section-heading">
-          <h2>Selected papers</h2>
-          <p class="section-kicker">A selective list of publications and preprints.</p>
+        <div class="section-heading papers-heading">
+          <div><h3>Selected papers</h3><p>A selective list of publications and preprints.</p></div>
         </div>
         <div class="publication-list">
           <article class="publication">
@@ -351,6 +313,32 @@
             <div><h3>Ichino periods for CM forms</h3><p>Li Cai · Yangyu Fan · Yong Jiang · Journal of Number Theory 266 (2025), 195–224</p></div>
             <a href="https://doi.org/10.1016/j.jnt.2024.07.011" target="_blank" rel="noreferrer" aria-label="Read Ichino periods for CM forms">Read paper ↗</a>
           </article>
+          <article class="publication">
+            <span class="publication-index">09</span>
+            <div><h3>p-adic Waldspurger formula for non-split primes and the converse of Gross–Zagier–Kolyvagin</h3><p>Yangyu Fan · Xin Wan · Preprint, 2023; revised 2026</p></div>
+            <a href="https://arxiv.org/abs/2304.09806" target="_blank" rel="noreferrer" aria-label="Read p-adic Waldspurger formula for non-split primes and the converse of Gross-Zagier-Kolyvagin">Read preprint ↗</a>
+          </article>
+          <article class="publication">
+            <span class="publication-index">10</span>
+            <div><h3>Arakelov geometry on flag varieties over function fields and related topics</h3><p>Yangyu Fan · Wenbin Luo · Binggang Qu · Advances in Mathematics 480 (2025), 110508</p></div>
+            <a href="https://arxiv.org/abs/2403.06808" target="_blank" rel="noreferrer" aria-label="Read Arakelov geometry on flag varieties over function fields and related topics">Read preprint ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="notes-aimath" class="research">
+      <div class="shell">
+        <div class="section-heading">
+          <h2>Notes &amp; AIMATH</h2>
+          <p class="section-kicker">Informal working documents for understanding and digesting ideas.</p>
+        </div>
+        <div class="notes-grid">
+          <a class="note" href="notes/ternary-jacobian.pdf"><div><span class="card-number">01</span><h3>Ternary Jacobian</h3><p>An informal manuscript on first-disappearance geometry and pointed companion exclusion.</p></div><span class="note-arrow">↗</span></a>
+          <a class="note" href="notes/hsia-conjecture.pdf"><div><span class="card-number">02</span><h3>Hsia conjecture</h3><p>A finite-certificate note centered on a concrete counterexample.</p></div><span class="note-arrow">↗</span></a>
+          <a class="note" href="notes/sun-conjectures.pdf"><div><span class="card-number">03</span><h3>Sun conjectures</h3><p>The common framework that organizes the two conjectural directions.</p></div><span class="note-arrow">↗</span></a>
+          <a class="note" href="notes/sun-conjectures-support-3-5.pdf"><div><span class="card-number">04</span><h3>Sun conjecture 3.5</h3><p>A supporting higher-order proof document.</p></div><span class="note-arrow">↗</span></a>
+          <a class="note" href="notes/sun-conjectures-support-5-2.pdf"><div><span class="card-number">05</span><h3>Sun conjecture 5.2</h3><p>A supporting proof document for the common framework.</p></div><span class="note-arrow">↗</span></a>
         </div>
       </div>
     </section>
