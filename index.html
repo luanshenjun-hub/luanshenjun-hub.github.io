@@ -138,6 +138,7 @@
 
     .research { background: var(--paper-deep); }
     .research-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .research-grid.two-col { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 860px; }
     .research-card { min-height: 250px; padding: 28px; background: var(--white); border: 1px solid rgba(23,33,43,.09); box-shadow: var(--shadow); }
     .card-number { color: var(--accent); font: 1.1rem var(--serif); }
     .research-card h3 { margin: 32px 0 10px; font-size: 1.55rem; line-height: 1.1; }
@@ -156,6 +157,10 @@
     .papers-heading { margin-top: 72px; margin-bottom: 32px; }
     .papers-heading h3 { margin: 0; font: 2rem var(--serif); letter-spacing: -.025em; }
     .papers-heading p { margin: 8px 0 0; color: var(--muted); font-size: .92rem; }
+    .paper-group { margin-bottom: 48px; }
+    .paper-group:last-child { margin-bottom: 0; }
+    .paper-group-heading { margin: 0 0 16px; }
+    .paper-group-heading h4 { margin: 0; font: 1.35rem var(--serif); letter-spacing: -.02em; }
     .notes-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
     .note { min-height: 210px; display: flex; justify-content: space-between; gap: 20px; padding: 24px; background: var(--white); border: 1px solid var(--line); text-decoration: none; }
     .note:hover, .note:focus-visible { border-color: var(--accent); }
@@ -208,7 +213,7 @@
       <a class="brand" href="#top">Yangyu Fan<span> · </span>Mathematics</a>
       <nav class="nav-links" aria-label="Primary navigation">
         <a href="#about">About</a>
-        <a href="#research">Research &amp; papers</a>
+        <a href="#research">Research</a>
         <a href="#notes-aimath">Notes &amp; AIMATH</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -258,32 +263,28 @@
       <div class="shell">
         <div class="section-heading">
           <h2>Research</h2>
-          <p class="section-kicker">The recurring themes across my work.</p>
+          <p class="section-kicker">Two connected areas guide my work.</p>
         </div>
-        <div class="research-grid">
+        <div class="research-grid two-col">
           <article class="research-card">
             <span class="card-number">01</span>
-            <h3>p-adic arithmetic<br />&amp; L-functions</h3>
-            <p>I work on p-adic L-functions, Waldspurger formulae, and special values, with links to Iwasawa theory and Selmer phenomena.</p>
-            <div class="tag-list"><span class="tag">p-adic L-functions</span><span class="tag">Waldspurger formulae</span></div>
+            <h3>Automorphic representations<br />&amp; relative Langlands</h3>
+            <p>Ext-groups, spherical varieties, local periods, spherical characters, and relative Satake transforms.</p>
+            <div class="tag-list"><span class="tag">p-adic groups</span><span class="tag">relative Langlands</span></div>
           </article>
           <article class="research-card">
             <span class="card-number">02</span>
-            <h3>Automorphic representations<br />&amp; relative Langlands</h3>
-            <p>I study Ext-groups, spherical varieties, local periods, spherical characters, and relative Satake transforms in families.</p>
-            <div class="tag-list"><span class="tag">p-adic groups</span><span class="tag">spherical varieties</span></div>
-          </article>
-          <article class="research-card">
-            <span class="card-number">03</span>
-            <h3>Arithmetic geometry<br />&amp; period identities</h3>
-            <p>I connect flag varieties over function fields with local and global period formulae, Euler systems, and central L-values.</p>
-            <div class="tag-list"><span class="tag">Arakelov geometry</span><span class="tag">periods</span></div>
+            <h3>p-adic arithmetic<br />&amp; arithmetic geometry</h3>
+            <p>p-adic L-functions, Waldspurger formulae, Euler systems, central L-values, and flag varieties over function fields.</p>
+            <div class="tag-list"><span class="tag">p-adic L-functions</span><span class="tag">arithmetic geometry</span></div>
           </article>
         </div>
         <div class="section-heading papers-heading">
-          <div><h3>Selected papers &amp; thesis</h3><p>A selective list of publications, preprints, and my doctoral thesis.</p></div>
+          <div><h3>Selected work</h3><p>Representative papers, preprints, and doctoral thesis.</p></div>
         </div>
-        <div class="publication-list">
+        <div class="paper-group">
+          <div class="paper-group-heading"><h4>Automorphic representations &amp; relative Langlands</h4></div>
+          <div class="publication-list">
           <article class="publication">
             <span class="publication-index">01</span>
             <div><h3>Top degree Ext-groups and relatively supercuspidal spectra</h3><p>Li Cai · Yangyu Fan · Advances in Mathematics 410 (2022), 108744</p></div>
@@ -314,6 +315,11 @@
             <div><h3>Euler systems and relative Satake isomorphism</h3><p>Li Cai · Yangyu Fan · Shilin Lai · Preprint, 2024</p></div>
             <a href="https://arxiv.org/abs/2410.18392" target="_blank" rel="noreferrer" aria-label="Read Euler systems and relative Satake isomorphism">Read preprint ↗</a>
           </article>
+          </div>
+        </div>
+        <div class="paper-group">
+          <div class="paper-group-heading"><h4>p-adic arithmetic &amp; arithmetic geometry</h4></div>
+          <div class="publication-list">
           <article class="publication">
             <span class="publication-index">07</span>
             <div><h3>Co-periods and central symmetric cube L-values</h3><p>Li Cai · Yangyu Fan · Dongming She · Preprint, 2025</p></div>
@@ -334,11 +340,17 @@
             <div><h3>Arakelov geometry on flag varieties over function fields and related topics</h3><p>Yangyu Fan · Wenbin Luo · Binggang Qu · Advances in Mathematics 480 (2025), 110508</p></div>
             <a href="https://arxiv.org/abs/2403.06808" target="_blank" rel="noreferrer" aria-label="Read Arakelov geometry on flag varieties over function fields and related topics">Read preprint ↗</a>
           </article>
+          </div>
+        </div>
+        <div class="paper-group">
+          <div class="paper-group-heading"><h4>Doctoral thesis</h4></div>
+          <div class="publication-list">
           <article class="publication">
             <span class="publication-index">11</span>
             <div><h3>Local expansion in Serre–Tate coordinates and p-adic iteration of Gauss–Manin connections</h3><p>Yangyu Fan · Doctoral thesis, Università degli Studi di Milano, 2018</p></div>
             <a href="papers/yangyu-fan-phd-thesis.pdf" aria-label="Read Yangyu Fan doctoral thesis">Read thesis ↗</a>
           </article>
+          </div>
         </div>
       </div>
     </section>
