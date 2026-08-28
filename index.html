@@ -156,12 +156,21 @@
     .papers-heading { margin-top: 72px; margin-bottom: 32px; }
     .papers-heading h3 { margin: 0; font: 2rem var(--serif); letter-spacing: -.025em; }
     .papers-heading p { margin: 8px 0 0; color: var(--muted); font-size: .92rem; }
-    .notes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .note { display: flex; justify-content: space-between; gap: 20px; padding: 24px; background: var(--white); border: 1px solid var(--line); text-decoration: none; }
+    .notes-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .note { min-height: 210px; display: flex; justify-content: space-between; gap: 20px; padding: 24px; background: var(--white); border: 1px solid var(--line); text-decoration: none; }
     .note:hover, .note:focus-visible { border-color: var(--accent); }
-    .note h3 { margin: 0 0 4px; font-size: 1.25rem; }
+    .note h3 { margin: 24px 0 8px; font-size: 1.25rem; }
     .note p { margin: 0; color: var(--muted); font-size: .87rem; }
     .note-arrow { color: var(--accent); font-size: 1.5rem; }
+    .note-group { grid-column: 1 / -1; display: grid; grid-template-columns: 1.15fr .85fr; gap: 16px; }
+    .note-primary { color: var(--paper); background: var(--accent-dark); border-color: var(--accent-dark); }
+    .note-primary .card-number, .note-primary .note-arrow { color: #f3c0b3; }
+    .note-primary h3 { font-size: 1.55rem; }
+    .note-primary p { color: #f2d8d0; }
+    .note-supports { display: grid; gap: 16px; }
+    .note-support { min-height: 0; padding: 22px; }
+    .note-support h3 { margin: 14px 0 8px; font-size: 1.08rem; }
+    .note-support p { font-size: .84rem; }
 
     .contact { color: var(--paper); background: var(--ink); }
     .contact .section-kicker { color: #babbb7; }
@@ -183,6 +192,8 @@
       .section-kicker { margin-top: 18px; }
       .about-copy { margin-bottom: 42px; }
       .research-grid, .notes-grid { grid-template-columns: 1fr; }
+      .note-group { grid-column: auto; display: block; }
+      .note-supports { margin-top: 16px; }
       .publication { grid-template-columns: 34px 1fr; }
       .publication a { grid-column: 2; }
       footer .footer-inner { display: block; }
@@ -208,11 +219,11 @@
     <section class="hero">
       <div class="shell hero-inner">
         <p class="eyebrow">Mathematician · Number theory · Beijing Institute of Technology</p>
-        <h1>p-adic<br />arithmetic,<br /><em>and periods.</em></h1>
-        <p class="hero-lede">I work in number theory at the interface of p-adic arithmetic, automorphic representations, and the geometry of periods. I am especially interested in special-value formulas, relative Langlands questions, and the arithmetic structures they reveal.</p>
+        <h1>p-adic methods,<br />automorphic forms,<br /><em>and arithmetic geometry.</em></h1>
+        <p class="hero-lede">I study number theory through p-adic L-functions, automorphic representations, and arithmetic geometry. My work develops special-value formulae and period identities, with connections to relative Langlands, Euler systems, and the arithmetic of flag varieties.</p>
         <div class="hero-meta">
           <span><strong>Based at</strong> Beijing Institute of Technology</span>
-          <span><strong>Research in</strong> p-adic arithmetic · automorphic forms</span>
+          <span><strong>Research in</strong> number theory · p-adic methods</span>
         </div>
         <div class="hero-actions">
           <a class="button" href="#research">Explore research</a>
@@ -225,12 +236,12 @@
       <div class="shell">
         <div class="section-heading">
           <h2>About</h2>
-          <p class="section-kicker">Number theory, p-adic methods, and automorphic phenomena.</p>
+          <p class="section-kicker">Number theory, p-adic methods, automorphic representations, and arithmetic geometry.</p>
         </div>
         <div class="about-grid">
           <div class="about-copy">
-            <p>I study arithmetic through the interplay of p-adic analysis, representation theory, and geometry.</p>
-            <p>I am a pre-tenure assistant professor in the School of Mathematics and Statistics at <strong>Beijing Institute of Technology</strong>. My research focuses on <strong>p-adic special-value formulas and their arithmetic applications</strong>, together with questions about representations of p-adic groups, local periods, and families.</p>
+            <p>I work in number theory at the intersection of p-adic analysis, automorphic representations, and arithmetic geometry.</p>
+            <p>I am a pre-tenure assistant professor in the School of Mathematics and Statistics at <strong>Beijing Institute of Technology</strong>. My work centers on <strong>p-adic L-functions and special-value formulae</strong>, relative Langlands problems, periods, Euler systems, and the arithmetic geometry of flag varieties.</p>
             <p>I received my Ph.D. from the University of Milan in 2018, after studying at Sichuan University and the University of Chinese Academy of Sciences. Before joining BIT, I held postdoctoral positions at the Morningside Center of Mathematics and Capital Normal University.</p>
           </div>
           <dl class="details">
@@ -252,25 +263,25 @@
         <div class="research-grid">
           <article class="research-card">
             <span class="card-number">01</span>
-            <h3>p-adic<br />special values</h3>
-            <p>I study p-adic L-functions, interpolation problems, and special-value formulas with arithmetic consequences.</p>
-            <div class="tag-list"><span class="tag">p-adic L-functions</span><span class="tag">special values</span></div>
+            <h3>p-adic arithmetic<br />&amp; L-functions</h3>
+            <p>I work on p-adic L-functions, Waldspurger formulae, and special values, with links to Iwasawa theory and Selmer phenomena.</p>
+            <div class="tag-list"><span class="tag">p-adic L-functions</span><span class="tag">Waldspurger formulae</span></div>
           </article>
           <article class="research-card">
             <span class="card-number">02</span>
-            <h3>Relative Langlands<br />&amp; representations</h3>
-            <p>I investigate Ext-groups, relative supercuspidal spectra, spherical characters, and multiplicities in families.</p>
-            <div class="tag-list"><span class="tag">p-adic groups</span><span class="tag">relative Langlands</span></div>
+            <h3>Automorphic representations<br />&amp; relative Langlands</h3>
+            <p>I study Ext-groups, spherical varieties, local periods, spherical characters, and relative Satake transforms in families.</p>
+            <div class="tag-list"><span class="tag">p-adic groups</span><span class="tag">spherical varieties</span></div>
           </article>
           <article class="research-card">
             <span class="card-number">03</span>
-            <h3>Periods,<br />Euler systems &amp; L-values</h3>
-            <p>I work with local and global periods, Ichino-type formulas, Euler systems, and their links to central L-values.</p>
-            <div class="tag-list"><span class="tag">periods</span><span class="tag">Euler systems</span></div>
+            <h3>Arithmetic geometry<br />&amp; period identities</h3>
+            <p>I connect flag varieties over function fields with local and global period formulae, Euler systems, and central L-values.</p>
+            <div class="tag-list"><span class="tag">Arakelov geometry</span><span class="tag">periods</span></div>
           </article>
         </div>
         <div class="section-heading papers-heading">
-          <div><h3>Selected papers</h3><p>A selective list of publications and preprints.</p></div>
+          <div><h3>Selected papers &amp; thesis</h3><p>A selective list of publications, preprints, and my doctoral thesis.</p></div>
         </div>
         <div class="publication-list">
           <article class="publication">
@@ -323,6 +334,11 @@
             <div><h3>Arakelov geometry on flag varieties over function fields and related topics</h3><p>Yangyu Fan · Wenbin Luo · Binggang Qu · Advances in Mathematics 480 (2025), 110508</p></div>
             <a href="https://arxiv.org/abs/2403.06808" target="_blank" rel="noreferrer" aria-label="Read Arakelov geometry on flag varieties over function fields and related topics">Read preprint ↗</a>
           </article>
+          <article class="publication">
+            <span class="publication-index">11</span>
+            <div><h3>Local expansion in Serre–Tate coordinates and p-adic iteration of Gauss–Manin connections</h3><p>Yangyu Fan · Doctoral thesis, Università degli Studi di Milano, 2018</p></div>
+            <a href="papers/yangyu-fan-phd-thesis.pdf" aria-label="Read Yangyu Fan doctoral thesis">Read thesis ↗</a>
+          </article>
         </div>
       </div>
     </section>
@@ -330,15 +346,19 @@
     <section id="notes-aimath" class="research">
       <div class="shell">
         <div class="section-heading">
-          <h2>Notes &amp; AIMATH</h2>
+          <h2>AIMATH production</h2>
           <p class="section-kicker">Informal working documents for understanding and digesting ideas.</p>
         </div>
         <div class="notes-grid">
           <a class="note" href="notes/ternary-jacobian.pdf"><div><span class="card-number">01</span><h3>Ternary Jacobian</h3><p>An informal manuscript on first-disappearance geometry and pointed companion exclusion.</p></div><span class="note-arrow">↗</span></a>
           <a class="note" href="notes/hsia-conjecture.pdf"><div><span class="card-number">02</span><h3>Hsia conjecture</h3><p>A finite-certificate note centered on a concrete counterexample.</p></div><span class="note-arrow">↗</span></a>
-          <a class="note" href="notes/sun-conjectures.pdf"><div><span class="card-number">03</span><h3>Sun conjectures</h3><p>The common framework that organizes the two conjectural directions.</p></div><span class="note-arrow">↗</span></a>
-          <a class="note" href="notes/sun-conjectures-support-3-5.pdf"><div><span class="card-number">04</span><h3>Sun conjecture 3.5</h3><p>A supporting higher-order proof document.</p></div><span class="note-arrow">↗</span></a>
-          <a class="note" href="notes/sun-conjectures-support-5-2.pdf"><div><span class="card-number">05</span><h3>Sun conjecture 5.2</h3><p>A supporting proof document for the common framework.</p></div><span class="note-arrow">↗</span></a>
+          <div class="note-group">
+            <a class="note note-primary" href="notes/sun-conjectures.pdf"><div><span class="card-number">03 · Main framework</span><h3>Sun conjectures</h3><p>The common framework that organizes the two conjectural directions.</p></div><span class="note-arrow">↗</span></a>
+            <div class="note-supports">
+              <a class="note note-support" href="notes/sun-conjectures-support-3-5.pdf"><div><span class="card-number">04 · Support</span><h3>Sun conjecture 3.5</h3><p>Higher-order proof document supporting the common framework.</p></div><span class="note-arrow">↗</span></a>
+              <a class="note note-support" href="notes/sun-conjectures-support-5-2.pdf"><div><span class="card-number">05 · Support</span><h3>Sun conjecture 5.2</h3><p>Proof document supporting the common framework.</p></div><span class="note-arrow">↗</span></a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
