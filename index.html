@@ -137,8 +137,7 @@
 
     .research { background: var(--paper-deep); }
     .publication-list { border-top: 1px solid var(--line); }
-    .publication { display: grid; grid-template-columns: 52px 1fr auto; gap: 18px; align-items: start; padding: 24px 0; border-bottom: 1px solid var(--line); }
-    .publication-index { color: var(--accent); font: 1.25rem var(--serif); }
+    .publication { display: grid; grid-template-columns: 1fr auto; gap: 18px; align-items: start; padding: 24px 0; border-bottom: 1px solid var(--line); }
     .publication h3 { margin: 0 0 5px; font-size: 1.35rem; line-height: 1.2; }
     .publication p { margin: 0; color: var(--muted); font-size: .9rem; }
     .publication a { color: var(--accent-dark); text-decoration: none; font-size: .78rem; letter-spacing: .09em; text-transform: uppercase; }
@@ -147,6 +146,9 @@
     .papers-heading { margin-top: 72px; margin-bottom: 32px; }
     .papers-heading h3 { margin: 0; font: 2rem var(--serif); letter-spacing: -.025em; }
     .papers-heading p { margin: 8px 0 0; color: var(--muted); font-size: .92rem; }
+    .paper-group { margin-bottom: 48px; }
+    .paper-group:last-child { margin-bottom: 0; }
+    .paper-group-title { margin: 0 0 16px; font: 1.35rem var(--serif); letter-spacing: -.02em; }
     .card-number { color: var(--accent); font: 1.1rem var(--serif); }
     .notes-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
     .note { min-height: 210px; display: flex; justify-content: space-between; gap: 20px; padding: 24px; background: var(--white); border: 1px solid var(--line); text-decoration: none; }
@@ -186,8 +188,8 @@
       .notes-grid { grid-template-columns: 1fr; }
       .note-group { grid-column: auto; display: block; }
       .note-supports { margin-top: 16px; }
-      .publication { grid-template-columns: 34px 1fr; }
-      .publication a { grid-column: 2; }
+      .publication { grid-template-columns: 1fr; }
+      .publication a { grid-column: 1; }
       footer .footer-inner { display: block; }
       footer .footer-inner span { display: block; margin-top: 6px; }
     }
@@ -254,62 +256,64 @@
         <div class="section-heading papers-heading">
           <div><h3>Selected work</h3><p>Papers, preprints, and doctoral thesis.</p></div>
         </div>
-        <div class="publication-list">
-          <article class="publication">
-            <span class="publication-index">01</span>
-            <div><h3>Top degree Ext-groups and relatively supercuspidal spectra</h3><p>Li Cai · Yangyu Fan · Advances in Mathematics 410 (2022), 108744</p></div>
-            <a href="https://doi.org/10.1016/j.aim.2022.108744" target="_blank" rel="noreferrer" aria-label="Read Top degree Ext-groups and relatively supercuspidal spectra">Read paper ↗</a>
-          </article>
-          <article class="publication">
-            <span class="publication-index">02</span>
-            <div><h3>Higher Ext-groups in the triple product case</h3><p>Li Cai · Yangyu Fan · Mathematical Research Letters 30 (2023), 33–49</p></div>
-            <a href="https://arxiv.org/abs/2303.05766" target="_blank" rel="noreferrer" aria-label="Read Higher Ext-groups in the triple product case">Read paper ↗</a>
-          </article>
-          <article class="publication">
-            <span class="publication-index">03</span>
-            <div><h3>Families of canonical local periods on spherical varieties</h3><p>Li Cai · Yangyu Fan · Mathematische Annalen 389 (2024), 209–252</p></div>
-            <a href="https://doi.org/10.1007/s00208-023-02642-6" target="_blank" rel="noreferrer" aria-label="Read Families of canonical local periods on spherical varieties">Read paper ↗</a>
-          </article>
-          <article class="publication">
-            <span class="publication-index">04</span>
-            <div><h3>Multiplicities of Representations in Algebraic Families</h3><p>Li Cai · Yangyu Fan · Comptes Rendus Mathématique 362 (2024), 1097–1107</p></div>
-            <a href="https://doi.org/10.5802/crmath.623" target="_blank" rel="noreferrer" aria-label="Read Multiplicities of Representations in Algebraic Families">Read paper ↗</a>
-          </article>
-          <article class="publication">
-            <span class="publication-index">05</span>
-            <div><h3>Spherical characters in families: the unitary Gan–Gross–Prasad case</h3><p>Li Cai · Yangyu Fan · Forum Mathematicum 38 (2026), 61–71</p></div>
-            <a href="https://arxiv.org/abs/2305.11555" target="_blank" rel="noreferrer" aria-label="Read Spherical characters in families: the unitary Gan-Gross-Prasad case">Read preprint ↗</a>
-          </article>
-          <article class="publication">
-            <span class="publication-index">06</span>
-            <div><h3>Euler systems and relative Satake isomorphism</h3><p>Li Cai · Yangyu Fan · Shilin Lai · Preprint, 2024</p></div>
-            <a href="https://arxiv.org/abs/2410.18392" target="_blank" rel="noreferrer" aria-label="Read Euler systems and relative Satake isomorphism">Read preprint ↗</a>
-          </article>
-          <article class="publication">
-            <span class="publication-index">07</span>
-            <div><h3>Co-periods and central symmetric cube L-values</h3><p>Li Cai · Yangyu Fan · Dongming She · Preprint, 2025</p></div>
-            <a href="https://arxiv.org/abs/2507.15279" target="_blank" rel="noreferrer" aria-label="Read Co-periods and central symmetric cube L-values">Read preprint ↗</a>
-          </article>
-          <article class="publication">
-            <span class="publication-index">08</span>
-            <div><h3>Ichino periods for CM forms</h3><p>Li Cai · Yangyu Fan · Yong Jiang · Journal of Number Theory 266 (2025), 195–224</p></div>
-            <a href="https://doi.org/10.1016/j.jnt.2024.07.011" target="_blank" rel="noreferrer" aria-label="Read Ichino periods for CM forms">Read paper ↗</a>
-          </article>
-          <article class="publication">
-            <span class="publication-index">09</span>
-            <div><h3>p-adic Waldspurger formula for non-split primes and the converse of Gross–Zagier–Kolyvagin</h3><p>Yangyu Fan · Xin Wan · Preprint, 2023; revised 2026</p></div>
-            <a href="https://arxiv.org/abs/2304.09806" target="_blank" rel="noreferrer" aria-label="Read p-adic Waldspurger formula for non-split primes and the converse of Gross-Zagier-Kolyvagin">Read preprint ↗</a>
-          </article>
-          <article class="publication">
-            <span class="publication-index">10</span>
-            <div><h3>Arakelov geometry on flag varieties over function fields and related topics</h3><p>Yangyu Fan · Wenbin Luo · Binggang Qu · Advances in Mathematics 480 (2025), 110508</p></div>
-            <a href="https://arxiv.org/abs/2403.06808" target="_blank" rel="noreferrer" aria-label="Read Arakelov geometry on flag varieties over function fields and related topics">Read preprint ↗</a>
-          </article>
-          <article class="publication">
-            <span class="publication-index">11</span>
-            <div><h3>Local expansion in Serre–Tate coordinates and p-adic iteration of Gauss–Manin connections</h3><p>Yangyu Fan · Doctoral thesis, Università degli Studi di Milano, 2018</p></div>
-            <a href="papers/yangyu-fan-phd-thesis.pdf" aria-label="Read Yangyu Fan doctoral thesis">Read thesis ↗</a>
-          </article>
+        <div class="paper-group">
+          <h4 class="paper-group-title">Published papers</h4>
+          <div class="publication-list">
+            <article class="publication">
+              <div><h3>Top degree Ext-groups and relatively supercuspidal spectra</h3><p>Li Cai · Yangyu Fan · Advances in Mathematics 410 (2022), 108744</p></div>
+              <a href="https://doi.org/10.1016/j.aim.2022.108744" target="_blank" rel="noreferrer" aria-label="Read Top degree Ext-groups and relatively supercuspidal spectra">Read paper ↗</a>
+            </article>
+            <article class="publication">
+              <div><h3>Higher Ext-groups in the triple product case</h3><p>Li Cai · Yangyu Fan · Mathematical Research Letters 30 (2023), 33–49</p></div>
+              <a href="https://arxiv.org/abs/2303.05766" target="_blank" rel="noreferrer" aria-label="Read Higher Ext-groups in the triple product case">Read paper ↗</a>
+            </article>
+            <article class="publication">
+              <div><h3>Families of canonical local periods on spherical varieties</h3><p>Li Cai · Yangyu Fan · Mathematische Annalen 389 (2024), 209–252</p></div>
+              <a href="https://doi.org/10.1007/s00208-023-02642-6" target="_blank" rel="noreferrer" aria-label="Read Families of canonical local periods on spherical varieties">Read paper ↗</a>
+            </article>
+            <article class="publication">
+              <div><h3>Multiplicities of Representations in Algebraic Families</h3><p>Li Cai · Yangyu Fan · Comptes Rendus Mathématique 362 (2024), 1097–1107</p></div>
+              <a href="https://doi.org/10.5802/crmath.623" target="_blank" rel="noreferrer" aria-label="Read Multiplicities of Representations in Algebraic Families">Read paper ↗</a>
+            </article>
+            <article class="publication">
+              <div><h3>Ichino periods for CM forms</h3><p>Li Cai · Yangyu Fan · Yong Jiang · Journal of Number Theory 266 (2025), 195–224</p></div>
+              <a href="https://doi.org/10.1016/j.jnt.2024.07.011" target="_blank" rel="noreferrer" aria-label="Read Ichino periods for CM forms">Read paper ↗</a>
+            </article>
+            <article class="publication">
+              <div><h3>Arakelov geometry on flag varieties over function fields and related topics</h3><p>Yangyu Fan · Wenbin Luo · Binggang Qu · Advances in Mathematics 480 (2025), 110508</p></div>
+              <a href="https://arxiv.org/abs/2403.06808" target="_blank" rel="noreferrer" aria-label="Read Arakelov geometry on flag varieties over function fields and related topics">Read paper ↗</a>
+            </article>
+            <article class="publication">
+              <div><h3>Spherical characters in families: the unitary Gan–Gross–Prasad case</h3><p>Li Cai · Yangyu Fan · Forum Mathematicum 38 (2026), 61–71</p></div>
+              <a href="https://arxiv.org/abs/2305.11555" target="_blank" rel="noreferrer" aria-label="Read Spherical characters in families: the unitary Gan-Gross-Prasad case">Read paper ↗</a>
+            </article>
+          </div>
+        </div>
+        <div class="paper-group">
+          <h4 class="paper-group-title">Preprints</h4>
+          <div class="publication-list">
+            <article class="publication">
+              <div><h3>p-adic Waldspurger formula for non-split primes and the converse of Gross–Zagier–Kolyvagin</h3><p>Yangyu Fan · Xin Wan · Preprint, 2023; revised 2026</p></div>
+              <a href="https://arxiv.org/abs/2304.09806" target="_blank" rel="noreferrer" aria-label="Read p-adic Waldspurger formula for non-split primes and the converse of Gross-Zagier-Kolyvagin">Read preprint ↗</a>
+            </article>
+            <article class="publication">
+              <div><h3>Euler systems and relative Satake isomorphism</h3><p>Li Cai · Yangyu Fan · Shilin Lai · Preprint, 2024</p></div>
+              <a href="https://arxiv.org/abs/2410.18392" target="_blank" rel="noreferrer" aria-label="Read Euler systems and relative Satake isomorphism">Read preprint ↗</a>
+            </article>
+            <article class="publication">
+              <div><h3>Co-periods and central symmetric cube L-values</h3><p>Li Cai · Yangyu Fan · Dongming She · Preprint, 2025</p></div>
+              <a href="https://arxiv.org/abs/2507.15279" target="_blank" rel="noreferrer" aria-label="Read Co-periods and central symmetric cube L-values">Read preprint ↗</a>
+            </article>
+          </div>
+        </div>
+        <div class="paper-group">
+          <h4 class="paper-group-title">Doctoral thesis</h4>
+          <div class="publication-list">
+            <article class="publication">
+              <div><h3>Local expansion in Serre–Tate coordinates and p-adic iteration of Gauss–Manin connections</h3><p>Yangyu Fan · Università degli Studi di Milano, 2018</p></div>
+              <a href="papers/yangyu-fan-phd-thesis.pdf" aria-label="Read Yangyu Fan doctoral thesis">Read thesis ↗</a>
+            </article>
+          </div>
         </div>
       </div>
     </section>
