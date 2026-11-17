@@ -1,361 +1,77 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Yangyu Fan's academic homepage: p-adic arithmetic, automorphic representations, periods, and Euler systems." />
-  <title>Yangyu Fan — Number Theory</title>
-  <style>
-    :root {
-      --ink: #17212b;
-      --muted: #63717d;
-      --paper: #f7f4ee;
-      --paper-deep: #ebe5d9;
-      --white: #fffdf9;
-      --accent: #c4513d;
-      --accent-dark: #9e3b2b;
-      --line: rgba(23, 33, 43, .14);
-      --serif: Georgia, "Times New Roman", serif;
-      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      --shadow: 0 20px 60px rgba(23, 33, 43, .09);
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      color: var(--ink);
-      background: var(--paper);
-      font-family: var(--sans);
-      line-height: 1.65;
-    }
-    a { color: inherit; }
-    .shell { width: min(1160px, calc(100% - 48px)); margin: 0 auto; }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      border-bottom: 1px solid rgba(247, 244, 238, .16);
-      background: rgba(23, 33, 43, .96);
-      backdrop-filter: blur(14px);
-    }
-    .nav {
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-    .brand {
-      color: var(--paper);
-      text-decoration: none;
-      font-family: var(--serif);
-      font-size: 1.18rem;
-      letter-spacing: .01em;
-    }
-    .brand span { color: #e6a08f; }
-    .nav-links { display: flex; flex-wrap: wrap; gap: 22px; }
-    .nav-links a {
-      color: #e8e4dc;
-      text-decoration: none;
-      font-size: .8rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
-    .nav-links a:hover, .nav-links a:focus-visible { color: #e6a08f; }
-
-    .hero {
-      position: relative;
-      overflow: hidden;
-      color: var(--paper);
-      background: var(--ink);
-      padding: 112px 0 106px;
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0 0 0 55%;
-      opacity: .34;
-      background-image: linear-gradient(rgba(247,244,238,.12) 1px, transparent 1px), linear-gradient(90deg, rgba(247,244,238,.12) 1px, transparent 1px);
-      background-size: 42px 42px;
-      mask-image: linear-gradient(90deg, transparent, #000 45%, #000);
-    }
-    .hero::after {
-      content: "∂² + Δ";
-      position: absolute;
-      right: 7%;
-      bottom: -12px;
-      color: rgba(247, 244, 238, .08);
-      font: 13rem/1 var(--serif);
-      letter-spacing: -.12em;
-      transform: rotate(-10deg);
-      pointer-events: none;
-    }
-    .hero-inner { position: relative; z-index: 1; max-width: 880px; }
-    .eyebrow {
-      margin: 0 0 18px;
-      color: #e6a08f;
-      font-size: .75rem;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-    }
-    h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
-    h1 { max-width: 800px; margin: 0; font-size: clamp(3.8rem, 9vw, 7.6rem); line-height: .94; letter-spacing: -.065em; }
-    .hero-meta { display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 38px; color: #c6c4bd; font-size: .9rem; }
-    .hero-meta strong { color: #f2eee6; font-weight: 500; }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px; }
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px;
-      padding: 0 18px;
-      border: 1px solid #d86c56;
-      color: #fff8ef;
-      text-decoration: none;
-      font-size: .82rem;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      transition: .2s ease;
-    }
-    .button:hover, .button:focus-visible { color: var(--ink); background: #e6a08f; border-color: #e6a08f; }
-    .button.secondary { color: #c6c4bd; border-color: rgba(247,244,238,.25); }
-    .button.secondary:hover, .button.secondary:focus-visible { color: var(--paper); background: rgba(247,244,238,.12); border-color: rgba(247,244,238,.45); }
-
-    section { padding: 96px 0; }
-    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 28px; margin-bottom: 40px; }
-    .section-heading h2 { margin: 0; font-size: clamp(2.4rem, 4vw, 4rem); letter-spacing: -.045em; line-height: 1; }
-    .section-kicker { max-width: 390px; margin: 0; color: var(--muted); font-size: .96rem; }
-    .about-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 72px; align-items: start; }
-    .about-copy { max-width: 670px; font-size: 1.1rem; }
-    .about-copy p:first-child { margin-top: 0; font-family: var(--serif); font-size: 1.45rem; line-height: 1.45; }
-    .details { border-top: 1px solid var(--line); }
-    .detail { display: flex; justify-content: space-between; gap: 20px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: .9rem; }
-    .detail dt { color: var(--muted); }
-    .detail dd { margin: 0; text-align: right; }
-
-    .research { background: var(--paper-deep); }
-    .publication-list { border-top: 1px solid var(--line); }
-    .publication { display: grid; grid-template-columns: 1fr auto; gap: 18px; align-items: start; padding: 24px 0; border-bottom: 1px solid var(--line); }
-    .publication h3 { margin: 0 0 5px; font-size: 1.35rem; line-height: 1.2; }
-    .publication p { margin: 0; color: var(--muted); font-size: .9rem; }
-    .publication a { color: var(--accent-dark); text-decoration: none; font-size: .78rem; letter-spacing: .09em; text-transform: uppercase; }
-    .publication a:hover, .publication a:focus-visible { text-decoration: underline; }
-
-    .papers-heading { margin-top: 72px; margin-bottom: 32px; }
-    .papers-heading h3 { margin: 0; font: 2rem var(--serif); letter-spacing: -.025em; }
-    .papers-heading p { margin: 8px 0 0; color: var(--muted); font-size: .92rem; }
-    .paper-group { margin-bottom: 48px; }
-    .paper-group:last-child { margin-bottom: 0; }
-    .paper-group-title { margin: 0 0 16px; font: 1.35rem var(--serif); letter-spacing: -.02em; }
-    .card-number { color: var(--accent); font: 1.1rem var(--serif); }
-    .notes-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-    .note { min-height: 210px; display: flex; justify-content: space-between; gap: 20px; padding: 24px; background: var(--white); border: 1px solid var(--line); text-decoration: none; }
-    .note:hover, .note:focus-visible { border-color: var(--accent); }
-    .note h3 { margin: 24px 0 8px; font-size: 1.25rem; }
-    .note p { margin: 0; color: var(--muted); font-size: .87rem; }
-    .note-arrow { color: var(--accent); font-size: 1.5rem; }
-    .note-group { grid-column: 1 / -1; display: grid; grid-template-columns: 1.15fr .85fr; gap: 16px; }
-    .note-primary { color: var(--paper); background: var(--accent-dark); border-color: var(--accent-dark); }
-    .note-primary .card-number, .note-primary .note-arrow { color: #f3c0b3; }
-    .note-primary h3 { font-size: 1.55rem; }
-    .note-primary p { color: #f2d8d0; }
-    .note-supports { display: grid; gap: 16px; }
-    .note-support { min-height: 0; padding: 22px; }
-    .note-support h3 { margin: 14px 0 8px; font-size: 1.08rem; }
-    .note-support p { font-size: .84rem; }
-
-    .contact { color: var(--paper); background: var(--ink); }
-    .contact .section-kicker { color: #babbb7; }
-    .contact-grid { display: grid; grid-template-columns: 1fr .65fr; gap: 72px; align-items: end; }
-    .contact h2 { max-width: 650px; margin: 0; font-size: clamp(1.15rem, 2vw, 1.8rem); line-height: 1.2; letter-spacing: -.02em; }
-    footer { padding: 24px 0; color: #8d969e; background: #101920; font-size: .78rem; }
-    footer .footer-inner { display: flex; justify-content: space-between; gap: 16px; }
-
-    @media (max-width: 800px) {
-      .shell { width: min(100% - 32px, 620px); }
-      .nav { align-items: flex-start; padding: 16px 0; flex-direction: column; gap: 10px; }
-      .nav-links { gap: 12px 16px; }
-      .nav-links a { font-size: .68rem; }
-      .hero { padding: 76px 0 82px; }
-      .hero::before { inset: 25% 0 0 25%; }
-      .hero::after { font-size: 8rem; right: -3%; }
-      section { padding: 70px 0; }
-      .section-heading, .about-grid, .contact-grid { display: block; }
-      .section-kicker { margin-top: 18px; }
-      .about-copy { margin-bottom: 42px; }
-      .notes-grid { grid-template-columns: 1fr; }
-      .note-group { grid-column: auto; display: block; }
-      .note-supports { margin-top: 16px; }
-      .publication { grid-template-columns: 1fr; }
-      .publication a { grid-column: 1; }
-      footer .footer-inner { display: block; }
-      footer .footer-inner span { display: block; margin-top: 6px; }
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Yangyu Fan, mathematician at Beijing Institute of Technology. Research in number theory, p-adic methods and automorphic forms; interests in AI safety." />
+<title>Yangyu Fan | Mathematics</title>
+<style>
+:root{--ink:#192831;--muted:#53616a;--paper:#f8f6f0;--accent:#923e30;--line:#d9d7cd;--serif:Georgia,'Times New Roman',serif;--sans:system-ui,-apple-system,'Segoe UI',sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--sans)}a{color:var(--accent);text-underline-offset:4px}a:hover{text-decoration:underline}a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:5px}.shell{width:min(960px,calc(100% - 48px));margin:auto}.skip{position:fixed;left:16px;top:-80px;z-index:20;background:white;padding:12px}.skip:focus{top:12px}.site-header{background:var(--paper);border-bottom:1px solid var(--line)}.nav{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{font:20px var(--serif);text-decoration:none;color:var(--ink)}nav{display:flex;gap:24px;flex-wrap:wrap}nav a{font-size:14px;color:var(--muted);text-decoration:none;display:inline-flex;align-items:center;min-height:44px}section{scroll-margin-top:24px}.hero{padding:54px 0 36px;border-bottom:1px solid var(--line)}.eyebrow{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}h1,h2,h3{font-family:var(--serif);font-weight:400}h1{font-size:clamp(40px,6vw,64px);letter-spacing:-.035em;line-height:1.15;margin:0 0 14px}h1 span{font-size:.42em;letter-spacing:.08em;display:inline-block;margin-left:18px;color:var(--muted);vertical-align:middle}.intro{max-width:780px;margin:0 0 12px;font-size:18px;line-height:1.6}.interests{max-width:780px;margin:0;color:var(--muted)}.quick-links{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:20px}.quick-links a{min-height:44px;display:inline-flex;align-items:center;font-size:14px}h2{font-size:28px;letter-spacing:-.02em;line-height:1.25;margin:0 0 20px}.paper-group{padding:36px 0 8px}.publication-list{border-top:1px solid var(--line)}.publication{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px 24px;padding:18px 0;border-bottom:1px solid var(--line)}.publication h3{font-size:20px;line-height:1.35;margin:0 0 5px}.publication h3 a{color:var(--ink);text-decoration:none}.publication p{font-size:14px;color:var(--muted);margin:0}.publication>a{align-self:start;font-size:13px;min-height:44px;display:flex;align-items:center;white-space:nowrap}.section-meta{font-size:14px;color:var(--muted);margin:-8px 0 20px}.notes-section,.about-section{padding:42px 0;border-top:1px solid var(--line);margin-top:32px}.notes-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 32px}.note{display:flex;justify-content:space-between;gap:16px;padding:18px 0;border-top:1px solid var(--line);text-decoration:none}.note h3{font-size:19px;margin:0 0 6px;color:var(--ink)}.note p{color:var(--muted);font-size:14px;margin:0}.card-number{display:none}.note-arrow{font-size:18px}.about-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:48px}.about-grid p{margin:0 0 14px}.about-grid aside{font-size:14px;color:var(--muted)}.contact-label{font-weight:600;color:var(--ink);display:block}.footer{padding:22px 0;border-top:1px solid var(--line);color:var(--muted);font-size:12px}.footer .shell{display:flex;justify-content:space-between;gap:16px}p,h3,a{overflow-wrap:break-word}
+@media(max-width:640px){.shell{width:calc(100% - 36px)}.nav{align-items:flex-start;flex-direction:column;padding:16px 0 8px;gap:4px}nav{gap:4px 20px}nav a{font-size:14px}.hero{padding:32px 0 24px}h1{font-size:40px}h1 span{margin-left:10px;font-size:20px}.intro{font-size:17px}.interests{font-size:15px}.quick-links{gap:2px 20px;margin-top:14px}.paper-group{padding-top:28px}h2{font-size:26px}.publication{grid-template-columns:minmax(0,1fr);gap:3px;padding:16px 0}.publication h3{font-size:19px}.publication>a{justify-self:start;min-height:36px;padding-right:12px}.notes-grid,.about-grid{grid-template-columns:1fr;gap:0}.notes-section,.about-section{padding:30px 0;margin-top:24px}.about-grid aside{margin-top:10px}.footer .shell{display:block}.footer .shell > span{display:block}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{body{background:white;color:black;font-size:11pt}.shell{width:100%}.site-header,.skip,.quick-links,.note-arrow,.publication>a{display:none}.hero{padding-top:0}h1{font-size:30pt}h2{font-size:18pt}.paper-group,.notes-section,.about-section{padding-top:18px;margin-top:0}.publication{break-inside:avoid;padding:10px 0}a{color:inherit;text-decoration:none}.notes-grid,.about-grid{display:block}.footer{margin-top:20px}}
+</style>
 </head>
 <body>
-  <!-- Academic homepage of Yangyu Fan. Institutional details are linked from the official BIT profile. -->
-  <header class="site-header">
-    <div class="shell nav">
-      <a class="brand" href="#top">Yangyu Fan<span> · </span>Mathematics</a>
-      <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#about">About</a>
-        <a href="#research">Research</a>
-        <a href="#notes-aimath">Notes &amp; AIMATH</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="top">
-    <section class="hero">
-      <div class="shell hero-inner">
-        <p class="eyebrow">Mathematician · Number theory · Beijing Institute of Technology</p>
-        <h1>p-adic methods,<br />automorphic forms,<br /><em>and arithmetic geometry.</em></h1>
-        <div class="hero-meta">
-          <span><strong>Based at</strong> Beijing Institute of Technology</span>
-          <span><strong>Research in</strong> number theory · p-adic methods</span>
-        </div>
-        <div class="hero-actions">
-          <a class="button" href="#research">Explore research</a>
-          <a class="button secondary" href="https://math.bit.edu.cn/szdw/jgml/sxx/fyy/index.htm" target="_blank" rel="noreferrer">My BIT profile</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="shell">
-        <div class="section-heading">
-          <h2>About</h2>
-          <p class="section-kicker">Number theory, p-adic methods, automorphic representations, and arithmetic geometry.</p>
-        </div>
-        <div class="about-grid">
-          <div class="about-copy">
-            <p>My research is in number theory, with a focus on the representation theory of p-adic groups and arithmetic aspects of automorphic forms.</p>
-            <p>I am a pre-tenure assistant professor in the School of Mathematics and Statistics at <strong>Beijing Institute of Technology</strong>. My work concerns Ext-groups, spherical varieties, periods, and families of representations, together with related questions involving Euler systems and p-adic L-functions.</p>
-            <p>I received my Ph.D. from the University of Milan in 2018, after studying at Sichuan University and the University of Chinese Academy of Sciences. Before joining BIT, I held postdoctoral positions at the Morningside Center of Mathematics and Capital Normal University.</p>
-          </div>
-          <dl class="details">
-            <div class="detail"><dt>Position</dt><dd>Pre-tenure Assistant Professor</dd></div>
-            <div class="detail"><dt>Department</dt><dd>Mathematics &amp; Statistics</dd></div>
-            <div class="detail"><dt>Institution</dt><dd>Beijing Institute of Technology</dd></div>
-            <div class="detail"><dt>Academic path</dt><dd>Sichuan · UCAS · Milan</dd></div>
-          </dl>
-        </div>
-      </div>
-    </section>
-
-    <section id="research" class="research">
-      <div class="shell">
-        <div class="section-heading">
-          <h2>Research</h2>
-          <p class="section-kicker">A record of work in number theory.</p>
-        </div>
-        <div class="section-heading papers-heading">
-          <div><h3>Selected work</h3><p>Papers, preprints, and doctoral thesis.</p></div>
-        </div>
-        <div class="paper-group">
-          <h4 class="paper-group-title">Published papers</h4>
-          <div class="publication-list">
-            <article class="publication">
-              <div><h3>Top degree Ext-groups and relatively supercuspidal spectra</h3><p>Li Cai · Yangyu Fan · Advances in Mathematics 410 (2022), 108744</p></div>
-              <a href="https://doi.org/10.1016/j.aim.2022.108744" target="_blank" rel="noreferrer" aria-label="Read Top degree Ext-groups and relatively supercuspidal spectra">Read paper ↗</a>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="shell nav"><a class="brand" href="#top">Yangyu Fan · Mathematics</a><nav aria-label="Primary navigation"><a href="#research">Research</a><a href="#papers">Papers</a><a href="#notes-aimath">Notes</a><a href="#about">About &amp; contact</a></nav></div></header>
+<main id="main" class="shell">
+<section id="top" class="hero"><p class="eyebrow">Beijing Institute of Technology · Number theory</p><h1>Yangyu Fan <span lang="zh">范洋宇</span></h1><div id="research"><p class="intro">I study number theory, with a focus on p-adic methods, automorphic representations, and arithmetic aspects of automorphic forms.</p><p class="interests">My work concerns periods and branching, families of representations, Euler systems, and p-adic L-functions. I am also interested in research on AI safety.</p></div><div class="quick-links"><a href="mailto:yangyu.fan@bit.edu.cn">yangyu.fan@bit.edu.cn</a><a href="#papers">Papers</a><a href="https://math.bit.edu.cn/szdw/jgml/sxx/fyy/index.htm" target="_blank" rel="noreferrer">BIT profile ↗</a></div></section>
+<section class="paper-group" id="papers"><h2>Preprints</h2><div class="publication-list"><article class="publication">
+              <div><h3><a href="papers/Coperiod%20II(1).pdf">Co-periods and central symmetric cube L-values II: The quaternionic case</a></h3><p>Yangyu Fan · Xu Song · Preprint, 2026</p></div>
+              <a href="papers/Coperiod%20II(1).pdf" target="_blank" rel="noreferrer" aria-label="Read Co-periods and central symmetric cube L-values II: The quaternionic case">PDF ↗</a>
             </article>
-            <article class="publication">
-              <div><h3>Higher Ext-groups in the triple product case</h3><p>Li Cai · Yangyu Fan · Mathematical Research Letters 30 (2023), 33–49</p></div>
-              <a href="https://arxiv.org/abs/2303.05766" target="_blank" rel="noreferrer" aria-label="Read Higher Ext-groups in the triple product case">Read paper ↗</a>
+<article class="publication">
+              <div><h3><a href="https://arxiv.org/abs/2304.09806">p-adic Waldspurger formula for non-split primes and the converse of Gross–Zagier–Kolyvagin</a></h3><p>Yangyu Fan · Xin Wan · Preprint, 2023; revised 2026</p></div>
+              <a href="https://arxiv.org/abs/2304.09806" target="_blank" rel="noreferrer" aria-label="Read p-adic Waldspurger formula for non-split primes and the converse of Gross-Zagier-Kolyvagin">arXiv ↗</a>
             </article>
-            <article class="publication">
-              <div><h3>Families of canonical local periods on spherical varieties</h3><p>Li Cai · Yangyu Fan · Mathematische Annalen 389 (2024), 209–252</p></div>
-              <a href="https://doi.org/10.1007/s00208-023-02642-6" target="_blank" rel="noreferrer" aria-label="Read Families of canonical local periods on spherical varieties">Read paper ↗</a>
+<article class="publication">
+              <div><h3><a href="https://arxiv.org/abs/2410.18392">Euler systems and relative Satake isomorphism</a></h3><p>Li Cai · Yangyu Fan · Shilin Lai · Preprint, 2024</p></div>
+              <a href="https://arxiv.org/abs/2410.18392" target="_blank" rel="noreferrer" aria-label="Read Euler systems and relative Satake isomorphism">arXiv ↗</a>
             </article>
-            <article class="publication">
-              <div><h3>Multiplicities of Representations in Algebraic Families</h3><p>Li Cai · Yangyu Fan · Comptes Rendus Mathématique 362 (2024), 1097–1107</p></div>
-              <a href="https://doi.org/10.5802/crmath.623" target="_blank" rel="noreferrer" aria-label="Read Multiplicities of Representations in Algebraic Families">Read paper ↗</a>
+<article class="publication">
+              <div><h3><a href="https://arxiv.org/abs/2507.15279">Co-periods and central symmetric cube L-values</a></h3><p>Li Cai · Yangyu Fan · Dongming She · Preprint, 2025</p></div>
+              <a href="https://arxiv.org/abs/2507.15279" target="_blank" rel="noreferrer" aria-label="Read Co-periods and central symmetric cube L-values">arXiv ↗</a>
+            </article></div></section>
+<section class="paper-group" id="publications"><h2>Published papers</h2><div class="publication-list"><article class="publication">
+              <div><h3><a href="https://arxiv.org/abs/2305.11555">Spherical characters in families: the unitary Gan–Gross–Prasad case</a></h3><p>Li Cai · Yangyu Fan · Forum Mathematicum 38 (2026), 61–71</p></div>
+              <a href="https://arxiv.org/abs/2305.11555" target="_blank" rel="noreferrer" aria-label="Read Spherical characters in families: the unitary Gan-Gross-Prasad case">arXiv ↗</a>
             </article>
-            <article class="publication">
-              <div><h3>Ichino periods for CM forms</h3><p>Li Cai · Yangyu Fan · Yong Jiang · Journal of Number Theory 266 (2025), 195–224</p></div>
-              <a href="https://doi.org/10.1016/j.jnt.2024.07.011" target="_blank" rel="noreferrer" aria-label="Read Ichino periods for CM forms">Read paper ↗</a>
+<article class="publication">
+              <div><h3><a href="https://arxiv.org/abs/2403.06808">Arakelov geometry on flag varieties over function fields and related topics</a></h3><p>Yangyu Fan · Wenbin Luo · Binggang Qu · Advances in Mathematics 480 (2025), 110508</p></div>
+              <a href="https://arxiv.org/abs/2403.06808" target="_blank" rel="noreferrer" aria-label="Read Arakelov geometry on flag varieties over function fields and related topics">arXiv ↗</a>
             </article>
-            <article class="publication">
-              <div><h3>Arakelov geometry on flag varieties over function fields and related topics</h3><p>Yangyu Fan · Wenbin Luo · Binggang Qu · Advances in Mathematics 480 (2025), 110508</p></div>
-              <a href="https://arxiv.org/abs/2403.06808" target="_blank" rel="noreferrer" aria-label="Read Arakelov geometry on flag varieties over function fields and related topics">Read paper ↗</a>
+<article class="publication">
+              <div><h3><a href="https://doi.org/10.1016/j.jnt.2024.07.011">Ichino periods for CM forms</a></h3><p>Li Cai · Yangyu Fan · Yong Jiang · Journal of Number Theory 266 (2025), 195–224</p></div>
+              <a href="https://doi.org/10.1016/j.jnt.2024.07.011" target="_blank" rel="noreferrer" aria-label="Read Ichino periods for CM forms">Journal ↗</a>
             </article>
-            <article class="publication">
-              <div><h3>Spherical characters in families: the unitary Gan–Gross–Prasad case</h3><p>Li Cai · Yangyu Fan · Forum Mathematicum 38 (2026), 61–71</p></div>
-              <a href="https://arxiv.org/abs/2305.11555" target="_blank" rel="noreferrer" aria-label="Read Spherical characters in families: the unitary Gan-Gross-Prasad case">Read paper ↗</a>
+<article class="publication">
+              <div><h3><a href="https://doi.org/10.5802/crmath.623">Multiplicities of Representations in Algebraic Families</a></h3><p>Li Cai · Yangyu Fan · Comptes Rendus Mathématique 362 (2024), 1097–1107</p></div>
+              <a href="https://doi.org/10.5802/crmath.623" target="_blank" rel="noreferrer" aria-label="Read Multiplicities of Representations in Algebraic Families">Journal ↗</a>
             </article>
-          </div>
-        </div>
-        <div class="paper-group">
-          <h4 class="paper-group-title">Preprints</h4>
-          <div class="publication-list">
-            <article class="publication">
-              <div><h3>Co-periods and central symmetric cube L-values II: The quaternionic case</h3><p>Yangyu Fan · Xu Song · Preprint, 2026</p></div>
-              <a href="papers/Coperiod%20II(1).pdf" target="_blank" rel="noreferrer" aria-label="Read Co-periods and central symmetric cube L-values II: The quaternionic case">Read preprint ↗</a>
+<article class="publication">
+              <div><h3><a href="https://doi.org/10.1007/s00208-023-02642-6">Families of canonical local periods on spherical varieties</a></h3><p>Li Cai · Yangyu Fan · Mathematische Annalen 389 (2024), 209–252</p></div>
+              <a href="https://doi.org/10.1007/s00208-023-02642-6" target="_blank" rel="noreferrer" aria-label="Read Families of canonical local periods on spherical varieties">Journal ↗</a>
             </article>
-            <article class="publication">
-              <div><h3>p-adic Waldspurger formula for non-split primes and the converse of Gross–Zagier–Kolyvagin</h3><p>Yangyu Fan · Xin Wan · Preprint, 2023; revised 2026</p></div>
-              <a href="https://arxiv.org/abs/2304.09806" target="_blank" rel="noreferrer" aria-label="Read p-adic Waldspurger formula for non-split primes and the converse of Gross-Zagier-Kolyvagin">Read preprint ↗</a>
+<article class="publication">
+              <div><h3><a href="https://arxiv.org/abs/2303.05766">Higher Ext-groups in the triple product case</a></h3><p>Li Cai · Yangyu Fan · Mathematical Research Letters 30 (2023), 33–49</p></div>
+              <a href="https://arxiv.org/abs/2303.05766" target="_blank" rel="noreferrer" aria-label="Read Higher Ext-groups in the triple product case">arXiv ↗</a>
             </article>
-            <article class="publication">
-              <div><h3>Euler systems and relative Satake isomorphism</h3><p>Li Cai · Yangyu Fan · Shilin Lai · Preprint, 2024</p></div>
-              <a href="https://arxiv.org/abs/2410.18392" target="_blank" rel="noreferrer" aria-label="Read Euler systems and relative Satake isomorphism">Read preprint ↗</a>
-            </article>
-            <article class="publication">
-              <div><h3>Co-periods and central symmetric cube L-values</h3><p>Li Cai · Yangyu Fan · Dongming She · Preprint, 2025</p></div>
-              <a href="https://arxiv.org/abs/2507.15279" target="_blank" rel="noreferrer" aria-label="Read Co-periods and central symmetric cube L-values">Read preprint ↗</a>
-            </article>
-          </div>
-        </div>
-        <div class="paper-group">
-          <h4 class="paper-group-title">Doctoral thesis</h4>
-          <div class="publication-list">
-            <article class="publication">
-              <div><h3>Local expansion in Serre–Tate coordinates and p-adic iteration of Gauss–Manin connections</h3><p>Yangyu Fan · Università degli Studi di Milano, 2018</p></div>
-              <a href="papers/yangyu-fan-phd-thesis.pdf" aria-label="Read Yangyu Fan doctoral thesis">Read thesis ↗</a>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="notes-aimath" class="research">
-      <div class="shell">
-        <div class="section-heading">
-          <h2>AIMATH production</h2>
-          <p class="section-kicker">Informal working documents for understanding and digesting ideas.</p>
-        </div>
-        <div class="notes-grid">
-          <a class="note" href="notes/ternary-jacobian.pdf"><div><span class="card-number">01</span><h3>Ternary Jacobian</h3><p>An informal manuscript on first-disappearance geometry and pointed companion exclusion.</p></div><span class="note-arrow">↗</span></a>
-          <a class="note" href="notes/hsia-conjecture.pdf"><div><span class="card-number">02</span><h3>Hsia conjecture</h3><p>A finite-certificate note centered on a concrete counterexample.</p></div><span class="note-arrow">↗</span></a>
-          <div class="note-group">
-            <a class="note note-primary" href="notes/sun-conjectures.pdf"><div><span class="card-number">03 · Main framework</span><h3>Sun conjectures</h3><p>The common framework that organizes the two conjectural directions.</p></div><span class="note-arrow">↗</span></a>
-            <div class="note-supports">
-              <a class="note note-support" href="notes/sun-conjectures-support-3-5.pdf"><div><span class="card-number">04 · Support</span><h3>Sun conjecture 3.5</h3><p>Higher-order proof document supporting the common framework.</p></div><span class="note-arrow">↗</span></a>
-              <a class="note note-support" href="notes/sun-conjectures-support-5-2.pdf"><div><span class="card-number">05 · Support</span><h3>Sun conjecture 5.2</h3><p>Proof document supporting the common framework.</p></div><span class="note-arrow">↗</span></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="contact">
-      <div class="shell">
-        <p class="eyebrow">Correspondence</p>
-        <h2><a href="mailto:yangyu.fan@bit.edu.cn">yangyu.fan@bit.edu.cn</a></h2>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="shell footer-inner">
-      <span>© <span id="year"></span> Yangyu Fan</span>
-      <span>Hosted on GitHub Pages</span>
-    </div>
-  </footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<article class="publication">
+              <div><h3><a href="https://doi.org/10.1016/j.aim.2022.108744">Top degree Ext-groups and relatively supercuspidal spectra</a></h3><p>Li Cai · Yangyu Fan · Advances in Mathematics 410 (2022), 108744</p></div>
+              <a href="https://doi.org/10.1016/j.aim.2022.108744" target="_blank" rel="noreferrer" aria-label="Read Top degree Ext-groups and relatively supercuspidal spectra">Journal ↗</a>
+            </article></div></section>
+<section class="paper-group" id="thesis"><h2>Doctoral thesis</h2><div class="publication-list"><article class="publication">
+              <div><h3><a href="papers/yangyu-fan-phd-thesis.pdf">Local expansion in Serre–Tate coordinates and p-adic iteration of Gauss–Manin connections</a></h3><p>Yangyu Fan · Università degli Studi di Milano, 2018</p></div>
+              <a href="papers/yangyu-fan-phd-thesis.pdf" aria-label="Read Yangyu Fan doctoral thesis">PDF ↗</a>
+            </article></div></section>
+<section id="notes-aimath" class="notes-section"><h2>Notes &amp; AI-assisted explorations</h2><p class="section-meta">AIMATH production: informal working documents for understanding and digesting ideas, listed separately from the research papers above.</p><div class="notes-grid"><a class="note" href="notes/ternary-jacobian.pdf"><div><span class="card-number">01</span><h3>Ternary Jacobian</h3><p>An informal manuscript on first-disappearance geometry and pointed companion exclusion.</p></div><span class="note-arrow">↗</span></a>
+<a class="note" href="notes/hsia-conjecture.pdf"><div><span class="card-number">02</span><h3>Hsia conjecture</h3><p>A finite-certificate note centered on a concrete counterexample.</p></div><span class="note-arrow">↗</span></a>
+<a class="note" href="notes/sun-conjectures.pdf"><div><span class="card-number">03 · Main framework</span><h3>Sun conjectures</h3><p>The common framework that organizes the two conjectural directions.</p></div><span class="note-arrow">↗</span></a>
+<a class="note" href="notes/sun-conjectures-support-3-5.pdf"><div><span class="card-number">04 · Support</span><h3>Sun conjecture 3.5</h3><p>Higher-order proof document supporting the common framework.</p></div><span class="note-arrow">↗</span></a>
+<a class="note" href="notes/sun-conjectures-support-5-2.pdf"><div><span class="card-number">05 · Support</span><h3>Sun conjecture 5.2</h3><p>Proof document supporting the common framework.</p></div><span class="note-arrow">↗</span></a></div></section>
+<section id="about" class="about-section"><h2>About &amp; contact</h2><div class="about-grid"><div><p>I am a pre-tenure assistant professor in the School of Mathematics and Statistics at Beijing Institute of Technology.</p><p>I received my Ph.D. from the University of Milan in 2018, after studying at Sichuan University and the University of Chinese Academy of Sciences. Before joining BIT, I held postdoctoral positions at the Morningside Center of Mathematics and Capital Normal University.</p></div><aside id="contact"><span class="contact-label">Correspondence</span><a href="mailto:yangyu.fan@bit.edu.cn">yangyu.fan@bit.edu.cn</a><p>School of Mathematics and Statistics<br />Beijing Institute of Technology</p><a href="https://math.bit.edu.cn/szdw/jgml/sxx/fyy/index.htm" target="_blank" rel="noreferrer">Institutional profile ↗</a></aside></div></section>
+</main><footer class="footer"><div class="shell"><span>© <span id="year"></span> Yangyu Fan</span><span>Mathematics · Hosted on GitHub Pages</span></div></footer><script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
